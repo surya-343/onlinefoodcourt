@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    <meta charset="UTF-8">
+    <title>Welcome To Online Food Court</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+     h1 {
+   text-align: center;
+    }
+
+ h1 {
+  text-shadow: 2px 2px 5px white;
+  color:white;
+    }
+
+</style>
+</head>
+<body background="static/images/krupa.jpg" style="background-size: 100%; ">
+<table>
+      <tr>
+        <td>
+          <img src="{{ url_for('static', filename='images/logo.jpg') }}"  width="60">
+        </td>
+        <td>
+          <h1> Online Food Court</h1>
+        </td>
+      </tr>
+    </table>
+
+<div class="topnav">
+    <a href="/">Home</a>|
+    <a href="/about">About</a>|
+    <a href="/addnew">Add New</a>|
+     <a href="/foodmenu">Food Menu</a>|
+    <a href="/newuser"> Register </a>|
+
+    {% if session.username : %}
+    <a href="/logout">Logout</a>|
+
+    {% else : %}
+    <a href="/login">Login</a>|
+    {% endif %}
+</div>
+
+{% block bodycontent%}
+{% endblock %}
+</body>
+</html>
